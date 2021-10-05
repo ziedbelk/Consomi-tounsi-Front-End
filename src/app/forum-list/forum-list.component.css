@@ -1,0 +1,9 @@
+.center {
+  display: flex;
+  justify-content: center;
+}
+.lignesEspacees
+{
+  border-collapse : separate;
+  border-spacing : 10px;
+}

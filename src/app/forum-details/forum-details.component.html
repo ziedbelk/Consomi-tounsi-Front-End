@@ -1,0 +1,95 @@
+
+<div class="center">
+  <h3>  </h3>
+</div>
+
+
+
+<div class="center">
+  <label> <b> subject : </b></label>
+</div>
+<h4 >
+  {{forum.subject}}
+</h4><br>
+<div [hidden]="hideinter">
+  <ul>
+     <li><label> <b> like: </b></label> {{forum.likes}}</li>
+    <li><label> <b> comments: </b></label> {{forum.commentsnb}}</li>
+
+    <button (click) = "addlike(forum.id)"  (click)="hideinterpol()"  class = "btn btn-info" style="margin-left: 10px"> Like ! </button>
+  </ul>
+
+</div>
+
+
+
+
+<div [hidden]="hideinter2">
+  <ul>
+    <b>you and {{forum.likes}} like this post </b><br><br>
+    <li><label> <b> comments: </b></label> {{forum.commentsnb}}</li>
+    <button (click) = "dislike(forum.id)" (click)="hider()" class = "btn btn-info" style="margin-left: 10px"> DisLike ! </button>
+
+  </ul>
+
+</div>
+<form (ngSubmit) = "onSubmit()" >
+
+  <div class="form-group">
+
+    <label> ecrivez un commentaire </label>
+    <input type="text" class ="form-control" id = "firstName"
+           [(ngModel)] = "details.content" name = "content">
+    <p class="alert-danger"> {{this.message}}</p>
+    <p id="ligne2">{{this.message2}} </p>
+
+  </div>
+
+
+
+  <button class = "btn btn-success" (click)="getformdet(forum.id)"  type ="submit">Submit</button>
+
+</form>
+<tbody>
+
+
+</tbody>
+
+
+<div >
+
+  <div class="center" [hidden]="hidee">
+    <p>
+      <button (click) = "getformdet(forum.id)"  (click)="hideee()" class = "btn btn-info"> see comments  </button>
+    </p>
+  </div>
+
+  <div class="center" [hidden]="hidee2" >
+    <p>
+      <button   (click)="ss()"  class = "btn btn-info">  Hide   </button>
+    </p>
+  </div>
+  <div [hidden]="hidee2">
+    <tr *ngFor = "let d of forumsdetail" >
+      <div id="example2">
+
+
+      <p>
+      <li>  <b>{{ d.content }} </b> </li><br>
+
+
+      <label>  posted in : </label> {{ d.date }}<br>
+      </p>
+
+     </div><br>
+
+    </tr>
+
+
+  </div>
+
+
+
+
+
+

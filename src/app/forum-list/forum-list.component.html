@@ -1,0 +1,98 @@
+<div class="center">
+  <h3> DICTIONNAIRE DES MOTS </h3><br>
+</div>
+
+
+
+<div class="center" [hidden]="hideinter">
+  <button  class = "btn btn-success" (click)="hide()" type ="submit"> Modifier dict </button><br>
+  </div><br>
+<div class="center" [hidden]="hideinter2">
+  <button  class = "btn btn-success" (click)="hide2()" type ="submit"> hide </button><br>
+</div><br>
+
+ <div [hidden]="hideinter2 ">
+  <form (ngSubmit) = "onSubmit()">
+
+    <div class="form-group">
+      <label> Put subject </label>
+      <input type="text" class ="form-control" id = "66"
+             [(ngModel)] = "mots.subject" name = "subject">
+    </div>
+
+
+    <div class="center">
+    <button  class = "btn btn-success" type ="submit"> ajouter mots interdit </button>
+    </div>
+  </form>
+   <div >
+     <label> <b> afficher Dictionnaire des mots </b></label><br>
+     <button (click) = "afficherdict()" class = "btn btn-info" style="margin-left: 10px"> see dict </button><br><br>
+     <table class = "table table-striped">
+       <thead>
+       <tr>
+         <th> id</th>
+         <th> subject </th>
+
+       </tr>
+       </thead>
+       <tbody>
+       <tr *ngFor = "let mi of moot" >
+         <td> {{ mi.id }}           </td>
+         <td> {{ mi.subject }}           </td>
+
+
+       </tr>
+       </tbody>
+     </table>
+   </div>
+
+ </div><br>
+
+<div [hidden]="hideinter">
+
+<table class = "table table-striped">
+  <thead>
+  <tr>
+    <th> id</th>
+    <th> subject </th>
+    <th> like</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let forum of forums" >
+    <td> {{ forum.id }} </td>
+    <td> {{ forum.subject }} </td>
+    <td> {{ forum.likes }} </td>
+    <td>
+      <button (click) = "updateForum(forum.id)" class = "btn btn-info"> Update</button>
+      <button (click) = "deleteEmployee(forum.id)"  (click)="deleteforumdet(forum.id)"class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+      <button (click) = "forumDetails(forum.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+    </td>
+  </tr>
+  </tbody>
+</table><br>
+<div >
+  <label> <b> afficher plus liked Employee <3 </b></label>
+  <button (click) = "afficherplus()" class = "btn btn-info" style="margin-left: 10px"> try</button><br><br>
+  <table class = "table table-striped">
+    <thead>
+    <tr>
+      <th> id</th>
+      <th> subject </th>
+      <th> like</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = "let forum of forumsplus" >
+      <td> {{ forum.id }}           </td>
+      <td> {{ forum.subject }}           </td>
+      <td> {{ forum.likes }} </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>

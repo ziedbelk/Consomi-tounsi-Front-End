@@ -1,0 +1,21 @@
+<h2> Forum list coté USER</h2>
+<table class = "table table-striped">
+  <thead>
+  <tr>
+    <th> id</th>
+    <th> subject </th>
+    <th> like</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let forum of forums" >
+    <td> {{ forum.id }} </td>
+    <td> {{ forum.subject }} </td>
+    <td> {{ forum.likes }} </td>
+    <td>
+      <button (click) = "forumDetails(forum.id)" class = "btn btn-info" style="margin-left: 10px"> View </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
